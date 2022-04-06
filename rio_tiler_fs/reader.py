@@ -36,6 +36,7 @@ class COGReader(cogeo.COGReader):
             self._kwargs["post_process"] = self.post_process
 
         if self.fs is None:
+            self.storage_options['requester_pays'] = True
             self.fs, self.input = fsspec.core.url_to_fs(
                 self.input, **self.storage_options
             )
